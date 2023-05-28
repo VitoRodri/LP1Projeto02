@@ -10,5 +10,9 @@ namespace TragicTheReckoning
         private int HP;
         private int MP;
         
+        public Player()
+        {
+            
+        }
     }
 }
