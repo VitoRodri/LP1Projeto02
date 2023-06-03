@@ -2,11 +2,15 @@ namespace TragicTheReckoning
 {
     public class Card
     {
+
+        //Variables for the cards
         private CardNames card;
         private int C {get; set;}
         private int AP{get; set;}
         private int DP{get; set;}
 
+
+        //Assigning values to the variables based on the different card names
         public Card(CardNames card)
         {
             this.card=card;
