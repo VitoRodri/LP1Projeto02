@@ -9,10 +9,13 @@ namespace TragicTheReckoning
     {
         private int HP;
         private int MP;
+        private CardDeck deck;
         
         public Player()
         {
-            
+            HP=10;
+            MP=0;
+            deck= new CardDeck();
         }
     }
 }
