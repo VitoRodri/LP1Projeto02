@@ -10,12 +10,14 @@ namespace TragicTheReckoning
         private int HP;
         private int MP;
         private CardDeck deck;
+        private List<Card>playercards= new List<Card>();
         
         public Player()
         {
             HP=10;
             MP=0;
             deck= new CardDeck();
+            deck.GiveCard(playercards,6);
         }
     }
 }

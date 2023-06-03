@@ -28,6 +28,7 @@ namespace TragicTheReckoning
             AddToList(listofcards,CardNames.BlueSteel, 2);
 
             Shuffle<Card>(listofcards); 
+            
         }
 
         public List<Card> AddToList(List<Card> listofcards,CardNames cardname,int i)
@@ -60,6 +61,17 @@ namespace TragicTheReckoning
             listofcards=newlist;
 
             return listofcards;
+        }
+        public List<Card> GiveCard(List<Card> list, int i)
+        {
+            a=0;
+            while(a<i)
+            {
+                list.Add(listofcards[0]);
+                RemoveList(listofcards,0);
+            }
+            
+            return list;
         }
     }
 }
