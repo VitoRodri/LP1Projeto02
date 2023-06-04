@@ -5,9 +5,14 @@ using System.Threading.Tasks;
 
 namespace TragicTheReckoning
 {
-    public class View: IView
+    public class Controller
     {
-        public View(Controller controller, Turn turn)
+        
+        public Controller(Turn turn)
+        {
+
+        }
+        public void Run(IView view)
         {
 
         }

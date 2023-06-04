@@ -17,23 +17,23 @@ namespace TragicTheReckoning
         //Constructor that creates a list of the cards and shuffles them 
         public CardDeck()
         {
-            AddList(listofcards,CardNames.FlyingWand, 4);
-            AddList(listofcards,CardNames.SeveredMonkeyHead, 4);
-            AddList(listofcards,CardNames.MysticalRockWall,2);
-            AddList(listofcards,CardNames.LobsterMcCrabs, 2);
-            AddList(listofcards,CardNames.GoblinTroll, 2);
-            AddList(listofcards,CardNames.ScorchingHeatwave, 1);
-            AddList(listofcards,CardNames.BlindMinotaur, 1);
-            AddList(listofcards,CardNames.TimTheWizard, 1);
-            AddList(listofcards,CardNames.SharplyDressed, 1);
-            AddList(listofcards,CardNames.BlueSteel, 2);
+            AddList(CardNames.FlyingWand, 4);
+            AddList(CardNames.SeveredMonkeyHead, 4);
+            AddList(CardNames.MysticalRockWall,2);
+            AddList(CardNames.LobsterMcCrabs, 2);
+            AddList(CardNames.GoblinTroll, 2);
+            AddList(CardNames.ScorchingHeatwave, 1);
+            AddList(CardNames.BlindMinotaur, 1);
+            AddList(CardNames.TimTheWizard, 1);
+            AddList(CardNames.SharplyDressed, 1);
+            AddList(CardNames.BlueSteel, 2);
 
-            Shuffle(listofcards); 
+            Shuffle(); 
             
         }
 
         //Adding a card to the list
-        public List<Card>AddList(List<Card>listofcards,CardNames cardname,int i)
+        public void AddList(CardNames cardname,int i)
         {
             a=0;
             while (a<i)
@@ -41,19 +41,19 @@ namespace TragicTheReckoning
                 listofcards.Add(new Card(cardname));
                 a++;
             }
-        
-            return listofcards;
+            
+            
         }
 
         //Removing a card from a list
-        public List<Card> RemoveList(List<Card> listofcards,int i)
+        public void RemoveList(int i)
         {
             listofcards.RemoveAt( i );
-            return listofcards;
+            
         }
 
         //Shuffling a list with 20 cards
-        public List<Card> Shuffle( List<Card> listofcards)
+        public void Shuffle()
         {
             a=0;
             while(a<20)
@@ -61,25 +61,24 @@ namespace TragicTheReckoning
                 a++;
                 b=random.Next(0,20-a);
                 newlist[a]=listofcards[b];
-                RemoveList(listofcards,b);
+                RemoveList(b);
 
             }
             listofcards=newlist;
-
-            return listofcards;
+   
         }
         
         //Taking a certain number of cards from the top of the list
-        public List<Card> GiveCard(List<Card> list, int i)
+        public void GiveCard(List<Card> list, int i)
         {
             a=0;
             while(a<i)
             {
                 list.Add(listofcards[0]);
-                RemoveList(listofcards,0);
+                RemoveList(0);
             }
             
-            return list;
+            
         }
     }
 }

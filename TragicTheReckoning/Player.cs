@@ -23,6 +23,7 @@ namespace TragicTheReckoning
             deck.GiveCard(playercards,6);
         }
 
+        //Changes the player's MP and gives a card if player has less than 6
         public void UpdatePlayer(int turn)
         {
             if (turn<5)
@@ -32,8 +33,8 @@ namespace TragicTheReckoning
             else
             {
                 MP=5;
-            }
-
+            } 
+            
             foreach (Card card in playercards)
             {
                 missingcards++;

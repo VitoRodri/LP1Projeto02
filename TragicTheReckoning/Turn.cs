@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 
 namespace TragicTheReckoning
 {
-    public class View: IView
+    public class Turn
     {
-        public View(Controller controller, Turn turn)
-        {
-
-        }
+        
     }
 }
