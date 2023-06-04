@@ -8,5 +8,6 @@ namespace TragicTheReckoning
     public interface IView
     {
         
+
     }
 }

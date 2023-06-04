@@ -7,9 +7,12 @@ namespace TragicTheReckoning
 {
     public class View: IView
     {
+        private Controller controller;
+        private Turn turn;
         public View(Controller controller, Turn turn)
         {
-
+            this.controller=controller;
+            this.turn=turn;
         }
     }
 }
