@@ -12,10 +12,10 @@ namespace TragicTheReckoning
         public Player player1=new Player();
         public Player player2=new Player();
         private Card card;
-        private int number1;
-        private int number2;
-        private List<Card> player1card;
-        private List<Card> player2card;
+        private int number1=0;
+        private int number2=0;
+        public List<Card> player1card;
+        public List<Card> player2card;
 
         //Constructor that starts 1 turn and updates the players
         public Turn()
@@ -60,14 +60,18 @@ namespace TragicTheReckoning
                 number1=player1card[a].DP-player2card[a].AP;
                 player2card[a].DP-=player1card[a].AP;
                 player1card[a].DP-=player2card[a].AP;
+                player1card.RemoveAt(a);
+                player2card.RemoveAt(a);
             }
             else if ((player1card[a]!=null)&(player2card[a]==null))
             {
                 player2.HP-=player1card[a].AP;
+                player1card.RemoveAt(a);
             }
             else if ((player2card[a]!=null)&(player1card[a]==null))
             {
                 player1.HP-=player2card[a].AP;
+                player2card.RemoveAt(a);
             }
 
             //If a players card gets destroyed 
@@ -80,7 +84,7 @@ namespace TragicTheReckoning
             else if ((number1<0)&(player1card[a+1]!=null))
             {
                 player1card.RemoveAt(a);
-                player1card[a+1].DP+=number1;
+                player1card[a].DP+=number1;
             }
 
 
@@ -92,7 +96,7 @@ namespace TragicTheReckoning
             else if ((number2<0)&(player2card[a+1]!=null))
             {
                 player2card.RemoveAt(a);
-                player2card[a+1].DP+=number2;
+                player2card[a].DP+=number2;
             }
             
         }

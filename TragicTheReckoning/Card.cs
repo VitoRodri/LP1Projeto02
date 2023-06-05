@@ -4,7 +4,7 @@ namespace TragicTheReckoning
     {
 
         //Variables for the cards
-        private CardNames card;
+        public CardNames card;
         public int C {get; set;}
         public int AP{get; set;}
         public int DP{get; set;}

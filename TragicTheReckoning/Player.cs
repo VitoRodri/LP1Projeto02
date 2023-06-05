@@ -11,7 +11,7 @@ namespace TragicTheReckoning
         public int HP{get; set;}
         public int MP{get; set;}
         private CardDeck deck;
-        private List<Card>playercards= new List<Card>();
+        public List<Card>playercards= new List<Card>();
         private int missingcards=0;
         
         //Constructor that assigns initial values to the variables
