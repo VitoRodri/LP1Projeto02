@@ -58,6 +58,7 @@ namespace TragicTheReckoning
             if (i<=b)
             {
                 Card card1=playercards[i-1];
+                playercards.RemoveAt(i-1);
                 return card1;
             }
             else
