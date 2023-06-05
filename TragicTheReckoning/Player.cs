@@ -8,8 +8,8 @@ namespace TragicTheReckoning
     public class Player
     {
         //Variables of the player
-        private int HP;
-        private int MP;
+        public int HP{get; set;}
+        public int MP{get; set;}
         private CardDeck deck;
         private List<Card>playercards= new List<Card>();
         private int missingcards=0;
@@ -28,7 +28,7 @@ namespace TragicTheReckoning
         {
             if (turn<5)
             {
-                MP++;
+                MP=turn;
             }
             else
             {
@@ -45,6 +45,27 @@ namespace TragicTheReckoning
                 deck.GiveCard(playercards,1);
             }
             
+        }
+        //Get one of the cards from the playercards
+        public Card ChooseCard(int i)
+        {
+            int a=0;
+            int b=0;
+            while (playercards[a]!=null)
+            {
+                b++;
+            }
+            if (i<=b)
+            {
+                Card card1=playercards[i-1];
+                return card1;
+            }
+            else
+            {
+                return null;
+            }
+            
+
         }
     }
 }

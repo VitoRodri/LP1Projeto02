@@ -7,7 +7,7 @@ namespace TragicTheReckoning
 {
     public interface IView
     {
-        
+        public void NoCard();
 
     }
 }

@@ -14,5 +14,10 @@ namespace TragicTheReckoning
             this.controller=controller;
             this.turn=turn;
         }
+        //If the card does not exist
+        public void NoCard()
+        {
+            Console.WriteLine($"Card does not exist");
+        }
     }
 }

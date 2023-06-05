@@ -5,9 +5,9 @@ namespace TragicTheReckoning
 
         //Variables for the cards
         private CardNames card;
-        private int C {get; set;}
-        private int AP{get; set;}
-        private int DP{get; set;}
+        public int C {get; set;}
+        public int AP{get; set;}
+        public int DP{get; set;}
 
 
         //Assigning values to the variables based on the different card names
@@ -75,6 +75,7 @@ namespace TragicTheReckoning
                 DP=2;
             }
         }
+        
 
     }
 }
