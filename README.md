@@ -20,4 +20,7 @@ Inicialmente, começou por se criar 5 scripts, 4 desses scripts são classes e o
                      private int AP;
                      private int DP;
                      
-            
+## Diagrama UML
+
+      ![Diagrama_UML](https://github.com/VitoRodri/LP1Projeto02/assets/115217659/de573e15-9ec7-4e65-a904-474377d44954)
+      
