@@ -8,10 +8,12 @@ namespace TragicTheReckoning
     public class Controller
     {
         private Turn turn;
-        private char keychar;
-        private ConsoleKeyInfo key;
-        private ConsoleKey actualkey;
+        private ConsoleKey key;
+
         private int alive;
+        private bool keys;
+        private string cards;
+        private int number;
         
         public Controller(Turn turn)
         {
@@ -27,55 +29,56 @@ namespace TragicTheReckoning
                 view.Player2Stats();
                 view.SpellPhase();
                 view.Player1Stats();
-                key=view.GetKey();
-                keychar=key.KeyChar;
-                actualkey=key.Key;
+                cards=view.HowManyCards();
+                key=view.GetKey().Key;
+                keys=GetKey(cards);
 
-                while ((actualkey!=ConsoleKey.Enter)&(actualkey!=ConsoleKey.Escape))
+                while(keys==true)
                 {
-                    turn.SpellPhasePlayer(keychar,turn.player1);
-                    if (turn.SpellPhasePlayer(keychar,turn.player1)==false)
+                    number=StringtoInt(cards);
+                    turn.SpellPhasePlayer(number,turn.player1);
+                    if (turn.SpellPhasePlayer(number,turn.player1)==false)
                     {
                         view.NoCard();
                         view.Player1Stats();
                     }
-                    key=view.GetKey();
-                    keychar=key.KeyChar;
-                    actualkey=key.Key;
+                    cards=view.HowManyCards();
+                    key=view.GetKey().Key;
+                    keys=GetKey(cards);
                 }
-                if (actualkey==ConsoleKey.Escape)
+                if (key==ConsoleKey.Escape)
                 {
                     view.End();
 
                     break;
                     
                 }
-                else
+                else if (key==ConsoleKey.Enter)
                 {
                     view.Player2Stats();
-                    key=view.GetKey();
-                    keychar=key.KeyChar;
-                    actualkey=key.Key;
+                    key=view.GetKey().Key;
 
-                    while ((actualkey!=ConsoleKey.Enter)&(actualkey!=ConsoleKey.Escape))
+                    keys=GetKey(cards);
+
+                    while (keys==true)
                     {
-                        turn.SpellPhasePlayer(keychar,turn.player2);
-                        if (turn.SpellPhasePlayer(keychar,turn.player2)==false)
+                        number=StringtoInt(cards);
+                        turn.SpellPhasePlayer(number,turn.player2);
+                        if (turn.SpellPhasePlayer(number,turn.player2)==false)
                         {
                             view.NoCard();
                             view.Player2Stats();
                         }
-                        key=view.GetKey();
-                        keychar=key.KeyChar;
-                        actualkey=key.Key;
+                        key=view.GetKey().Key;
+                        keys=GetKey(cards);
                     }
-                    if (actualkey==ConsoleKey.Escape)
+                    if (key==ConsoleKey.Escape)
                     {
                         view.End();
                         break;
                         
                     }
-                    else
+                    else if (key==ConsoleKey.Enter)
                     {
                         while((turn.player1card!=null)&(turn.player2card!=null))
                         {
@@ -87,6 +90,10 @@ namespace TragicTheReckoning
                         
                         
                     }
+                }
+                else
+                {
+                    
                 }
             }
 
@@ -108,5 +115,77 @@ namespace TragicTheReckoning
             
             
         }
+
+        private bool GetKey(string cards)
+        {
+            if (cards=="1")
+            {
+                return true;
+            }
+            else if (cards=="2")
+            {
+                return true;
+            }
+            else if (cards=="3")
+            {
+                return true;
+            }
+            else if (cards=="4")
+            {
+                return true;
+            }
+            else if (cards=="5")
+            {
+                return true;
+            }
+            else if (cards=="6")
+            {
+                return true;
+            }
+            else if (cards=="No")
+            {
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private int StringtoInt(string cards)
+        {
+            if (cards=="1")
+            {
+                number=1;
+                
+            }
+            else if (cards=="2")
+            {
+                number=2;
+            }
+            else if (cards=="3")
+            {
+                number=3;
+            }
+            else if (cards=="4")
+            {
+                number=4;
+            }
+            else if (cards=="5")
+            {
+                number=5;
+            }
+            else if (cards=="6")
+            {
+                number=6;
+            }
+            else
+            {
+                number=0;
+            }
+            return number;
+        }
+
+        
     }
 }

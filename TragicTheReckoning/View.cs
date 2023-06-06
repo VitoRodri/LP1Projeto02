@@ -79,8 +79,8 @@ namespace TragicTheReckoning
         public void SpellPhase()
         {
             Console.Write($"Choose the card to play in the attack phase.");
-            Console.Write($" If you don't want to play anymore cards press");
-            Console.WriteLine($" Enter");
+            Console.Write($" If you don't want to play anymore cards write");
+            Console.WriteLine($" no");
             
         }
 
@@ -122,6 +122,10 @@ namespace TragicTheReckoning
         public void Death(int a)
         {
             Console.WriteLine($"player {a} lost");
+        }
+        public string HowManyCards()
+        {
+            return Console.ReadLine();
         }
     }
 }
