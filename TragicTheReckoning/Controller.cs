@@ -46,6 +46,7 @@ namespace TragicTheReckoning
                 if (actualkey==ConsoleKey.Escape)
                 {
                     view.End();
+
                     break;
                     
                 }

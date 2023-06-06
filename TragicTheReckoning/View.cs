@@ -94,7 +94,7 @@ namespace TragicTheReckoning
         //Attack phase
         public void Attack(int a)
         {
-            if ((turn.player1card[a]!=null)&(turn.player2card[a]!=null))
+            if ((turn.player1card!=null)&(turn.player2card!=null))
             {
                 Console.WriteLine($"Both players have cards that can attack in game");
             }

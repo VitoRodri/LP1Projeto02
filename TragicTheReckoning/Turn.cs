@@ -56,7 +56,7 @@ namespace TragicTheReckoning
         public void AttackPhase(int a)
         {
             
-            if ((player1card[a]!=null)&(player2card[a]!=null))
+            if ((player1card!=null)&(player2card!=null))
             {
                 number2=player2card[a].DP-player1card[a].AP;
                 number1=player1card[a].DP-player2card[a].AP;
