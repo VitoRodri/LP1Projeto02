@@ -15,13 +15,13 @@ namespace TragicTheReckoning
             this.controller=controller;
             this.turn=turn;
         }
-        //If the card does not exist or player does not have enough MP
+        //<summary>If the card does not exist or player does not have enough MP</summary>
         public void NoCard()
         {
             Console.WriteLine($"Card does not exist or player has no MP");
         }
 
-        //Stats of the player 1
+        //<summary>Stats of the player 1</summary>
         public void Player1Stats()
         {
             number=0;
@@ -39,7 +39,7 @@ namespace TragicTheReckoning
                 Console.WriteLine($"{card.DP}");
             }
         }
-        //stats of the player 2
+        //<summary>stats of the player 2</summary>
         public void Player2Stats()
         {
             number=0;
@@ -58,7 +58,7 @@ namespace TragicTheReckoning
             }
         }
 
-        //Initial explanation of the game
+        //<summary>Initial explanation of the game</summary>
         public void ExplainGame()
         {
             Console.Write($"Try to bring the other players HP to 0.");
@@ -75,7 +75,7 @@ namespace TragicTheReckoning
             Console.WriteLine($"Esc.");
         }
 
-        //Spell phase
+        //<summary>Spell phase</summary>
         public void SpellPhase()
         {
             Console.Write($"Choose the card to play in the attack phase.");
@@ -84,7 +84,7 @@ namespace TragicTheReckoning
             
         }
 
-        //Get the key pressed by the player
+        //<returns>Get the key pressed by the player</returns>
         public ConsoleKeyInfo GetKey()
         {
             ConsoleKeyInfo key=Console.ReadKey();
@@ -113,12 +113,12 @@ namespace TragicTheReckoning
             
         }
 
-        //If a player gives up
+        //<summary>If a player gives up</summary>
         public void End()
         {
             Console.WriteLine($"A player has given up");
         }
-        //If a player loses
+        //<summary>If a player loses</summary>
         public void Death(int a)
         {
             Console.WriteLine($"player {a} lost");

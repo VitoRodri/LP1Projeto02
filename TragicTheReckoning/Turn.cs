@@ -7,7 +7,7 @@ namespace TragicTheReckoning
 {
     public class Turn
     {
-        //variables of the turn and both players
+        //<summary>variables of the turn and both players</summary>
         private int turn;
         public Player player1=new Player();
         public Player player2=new Player();
@@ -19,7 +19,7 @@ namespace TragicTheReckoning
         private List<Card> player1c= new List<Card>();
         private List<Card> player2c= new List<Card>();
 
-        //Constructor that starts 1 turn and updates the players
+        //<summary>Constructor that starts 1 turn and updates the players</summary>
         public Turn()
         {
             turn=1;
@@ -27,8 +27,9 @@ namespace TragicTheReckoning
             player2.UpdatePlayer(turn);
         }
 
-        //Check if player has enough MP to use card  
-        //if yes add to list of cards the player will play in the attack phase
+        //<summary>Check if player has enough MP to use card  
+        //if yes add to list of cards the player will play in the attack phase</summary>
+        //<returns> bool</returns>
         public bool SpellPhasePlayer(int i, Player player)
         {
             card=player.ChooseCard(i);
@@ -52,7 +53,7 @@ namespace TragicTheReckoning
             }
         }
         
-        //Cards deal damage to each other and the players
+        //<summary>Cards deal damage to each other and the players</summary>
         public void AttackPhase(int a)
         {
             
@@ -86,8 +87,8 @@ namespace TragicTheReckoning
                 player2card.RemoveAt(a);
             }
 
-            //If a players card gets destroyed 
-            //but the other players card still has AP
+            //<summary>If a players card gets destroyed 
+            //but the other players card still has AP</summary>
             if ((number1<0)&(player1card[a]==null))
             {
                 player1.HP+=number1;
@@ -111,7 +112,7 @@ namespace TragicTheReckoning
             
         }
 
-        //Next turn, update player MP and give card if needed
+        //<summary>Next turn, update player MP and give card if needed</summary>
         public void EndTurn()
         {
             turn++;

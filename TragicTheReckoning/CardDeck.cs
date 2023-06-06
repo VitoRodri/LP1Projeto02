@@ -7,14 +7,14 @@ namespace TragicTheReckoning
 {
     public class CardDeck
     {
-        //Variables for CardDeck
+        //<summary>Variables for CardDeck</summary>
         private List<Card> listofcards=new List<Card>();
         private List<Card> newlist=new List<Card>();
         private int a;
         private static Random random= new Random();
         private int b;
         
-        //Constructor that creates a list of the cards and shuffles them 
+        //<summary>Constructor that creates a list of the cards and shuffles them </summary>
         public CardDeck()
         {
             AddList(CardNames.FlyingWand, 4);
@@ -32,7 +32,7 @@ namespace TragicTheReckoning
             
         }
 
-        //Adding a card to the list
+        //<summary>Adding a card to the list</summary>
         public void AddList(CardNames cardname,int i)
         {
             a=0;
@@ -45,14 +45,14 @@ namespace TragicTheReckoning
             
         }
 
-        //Removing a card from a list
+        //<summary>Removing a card from a list</summary>
         public void RemoveList(int i)
         {
             listofcards.RemoveAt( i );
             
         }
 
-        //Shuffling a list with 20 cards
+        //<summary>Shuffling a list with 20 cards</summary>
         public void Shuffle()
         {
             a=0;
@@ -68,7 +68,7 @@ namespace TragicTheReckoning
    
         }
         
-        //Taking a certain number of cards from the top of the list
+        //<summary>Taking a certain number of cards from the top of the list</summary>
         public void GiveCard(List<Card> list, int i)
         {
             a=0;

@@ -7,14 +7,14 @@ namespace TragicTheReckoning
 {
     public class Player
     {
-        //Variables of the player
+        //<summary>Variables of the player</summary>
         public int HP{get; set;}
         public int MP{get; set;}
         public CardDeck deck;
         public List<Card>playercards= new List<Card>();
         private int missingcards=0;
         
-        //Constructor that assigns initial values to the variables
+        //<summary>Constructor that assigns initial values to the variables</summary>
         public Player()
         {
             HP=10;
@@ -23,7 +23,7 @@ namespace TragicTheReckoning
             deck.GiveCard(playercards,6);
         }
 
-        //Changes the player's MP and gives a card if player has less than 6
+        //<summary>Changes the player's MP and gives a card if player has less than 6</summary>
         public void UpdatePlayer(int turn)
         {
             if (turn<5)
@@ -46,7 +46,8 @@ namespace TragicTheReckoning
             }
             
         }
-        //Get one of the cards from the playercards
+        //<summary>Get one of the cards from the playercards</summary>
+        //<returns>Card</returns>
         public Card ChooseCard(int i)
         {
             int a=0;

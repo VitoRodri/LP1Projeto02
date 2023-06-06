@@ -3,14 +3,14 @@ namespace TragicTheReckoning
     public class Card
     {
 
-        //Variables for the cards
+        //<summary>Variables for the cards</summary>
         public CardNames card;
         public int C {get; set;}
         public int AP{get; set;}
         public int DP{get; set;}
 
 
-        //Assigning values to the variables based on the different card names
+        //<summary>Assigning values to the variables based on the different card names</summary>
         public Card(CardNames card)
         {
             this.card=card;
