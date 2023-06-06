@@ -8,10 +8,8 @@ namespace TragicTheReckoning
     public class Controller
     {
         private Turn turn;
-        private ConsoleKey key;
-
         private int alive;
-        private bool keys;
+
         private string cards;
         private int number;
         
@@ -30,10 +28,10 @@ namespace TragicTheReckoning
                 view.SpellPhase();
                 view.Player1Stats();
                 cards=view.HowManyCards();
-                key=view.GetKey().Key;
-                keys=GetKey(cards);
+                
 
-                while(keys==true)
+                while((cards=="1")|(cards=="2")|(cards=="3")|(cards=="4")|
+                        (cards=="5")|(cards=="6"))
                 {
                     number=StringtoInt(cards);
                     turn.SpellPhasePlayer(number,turn.player1);
@@ -42,26 +40,25 @@ namespace TragicTheReckoning
                         view.NoCard();
                         view.Player1Stats();
                     }
-                    keys=false;
                     cards=view.HowManyCards();
-                    keys=GetKey(cards);
+                    
                     
                 }
-                if (key==ConsoleKey.Escape)
+                if (cards=="quit")
                 {
                     view.End();
 
                     break;
                     
                 }
-                else if (key==ConsoleKey.Enter)
+                else if (cards=="continue")
                 {
                     view.Player2Stats();
-                    key=view.GetKey().Key;
 
-                    keys=GetKey(cards);
+                    cards=view.HowManyCards();
 
-                    while (keys==true)
+                    while ((cards=="1")|(cards=="2")|(cards=="3")|(cards=="4")|
+                        (cards=="5")|(cards=="6"))
                     {
                         number=StringtoInt(cards);
                         turn.SpellPhasePlayer(number,turn.player2);
@@ -70,22 +67,27 @@ namespace TragicTheReckoning
                             view.NoCard();
                             view.Player2Stats();
                         }
-                        key=view.GetKey().Key;
-                        keys=GetKey(cards);
+                        cards=view.HowManyCards();
+                        
                     }
-                    if (key==ConsoleKey.Escape)
+                    if (cards=="quit")
                     {
                         view.End();
                         break;
                         
                     }
-                    else if (key==ConsoleKey.Enter)
+                    else if (cards=="continue")
                     {
-                        while((turn.player1card!=null)&(turn.player2card!=null))
+                        turn.player1card.Add(null);
+                        turn.player2card.Add(null);
+                        view.Attack(0);
+
+                        while((turn.player1card[0]!=null)|(turn.player2card[0]!=null))
                         {
-                            view.Attack(0);
+                            
                             turn.AttackPhase(0);
                         }
+                        
 
                         turn.EndTurn();
                         
@@ -113,41 +115,7 @@ namespace TragicTheReckoning
             
         }
 
-        private bool GetKey(string cards)
-        {
-            if (cards=="1")
-            {
-                return true;
-            }
-            else if (cards=="2")
-            {
-                return true;
-            }
-            else if (cards=="3")
-            {
-                return true;
-            }
-            else if (cards=="4")
-            {
-                return true;
-            }
-            else if (cards=="5")
-            {
-                return true;
-            }
-            else if (cards=="6")
-            {
-                return true;
-            }
-            else if (cards=="No")
-            {
-                return false;
-            }
-            else
-            {
-                return false;
-            }
-        }
+  
 
         private int StringtoInt(string cards)
         {

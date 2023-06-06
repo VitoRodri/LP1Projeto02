@@ -14,6 +14,8 @@ namespace TragicTheReckoning
         private Card card;
         private int number1=0;
         private int number2=0;
+        private int n;
+        private int m;
         public List<Card> player1card= new List<Card>();
         public List<Card> player2card= new List<Card>();
         private List<Card> player1c= new List<Card>();
@@ -57,10 +59,12 @@ namespace TragicTheReckoning
         public void AttackPhase(int a)
         {
             
-            if ((player1card!=null)&(player2card!=null))
+            if ((player1card[a]!=null)&(player2card[a]!=null))
             {
-                number2=player2card[a].DP-player1card[a].AP;
-                number1=player1card[a].DP-player2card[a].AP;
+                n=player2card[a].DP;
+                m=player1card[a].DP;
+                number2=n-player1card[a].AP;
+                number1=m-player2card[a].AP;
                 player2card[a].DP-=player1card[a].AP;
                 player1card[a].DP-=player2card[a].AP;
                 if (player1card[a].DP>0)

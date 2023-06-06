@@ -15,7 +15,6 @@ namespace TragicTheReckoning
         public void Attack(int a);
         public void End();
         public void Death(int a);
-        public ConsoleKeyInfo GetKey();
         public string HowManyCards();
 
     }

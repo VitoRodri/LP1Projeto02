@@ -84,17 +84,12 @@ namespace TragicTheReckoning
             
         }
 
-        //<returns>Get the key pressed by the player</returns>
-        public ConsoleKeyInfo GetKey()
-        {
-            ConsoleKeyInfo key=Console.ReadKey();
-            return key;
-        }
+        
 
         //Attack phase
         public void Attack(int a)
         {
-            if ((turn.player1card!=null)&(turn.player2card!=null))
+            if ((turn.player1card[a]!=null)&(turn.player2card[a]!=null))
             {
                 Console.WriteLine($"Both players have cards that can attack in game");
             }
