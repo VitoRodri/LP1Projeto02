@@ -60,7 +60,7 @@ namespace TragicTheReckoning
             {
                 a++;
                 b=random.Next(0,20-a);
-                newlist[a]=listofcards[b];
+                newlist.Add(listofcards[b]);
                 RemoveList(b);
 
             }
@@ -76,6 +76,7 @@ namespace TragicTheReckoning
             {
                 list.Add(listofcards[0]);
                 RemoveList(0);
+                a++;
             }
             
             

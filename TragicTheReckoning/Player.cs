@@ -10,7 +10,7 @@ namespace TragicTheReckoning
         //Variables of the player
         public int HP{get; set;}
         public int MP{get; set;}
-        private CardDeck deck;
+        public CardDeck deck;
         public List<Card>playercards= new List<Card>();
         private int missingcards=0;
         

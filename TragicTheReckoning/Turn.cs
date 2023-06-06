@@ -14,8 +14,10 @@ namespace TragicTheReckoning
         private Card card;
         private int number1=0;
         private int number2=0;
-        public List<Card> player1card;
-        public List<Card> player2card;
+        public List<Card> player1card= new List<Card>();
+        public List<Card> player2card= new List<Card>();
+        private List<Card> player1c= new List<Card>();
+        private List<Card> player2c= new List<Card>();
 
         //Constructor that starts 1 turn and updates the players
         public Turn()
@@ -27,7 +29,7 @@ namespace TragicTheReckoning
 
         //Check if player has enough MP to use card  
         //if yes add to list of cards the player will play in the attack phase
-        public bool SpellPhasePlayer1(int i, Player player)
+        public bool SpellPhasePlayer(int i, Player player)
         {
             card=player.ChooseCard(i);
             if ((card!=null)&(card.C<=player.MP))
@@ -60,44 +62,52 @@ namespace TragicTheReckoning
                 number1=player1card[a].DP-player2card[a].AP;
                 player2card[a].DP-=player1card[a].AP;
                 player1card[a].DP-=player2card[a].AP;
+                if (player1card[a].DP>0)
+                {
+                    player1c.Add(player1card[a]);
+                }
+                if (player2card[a].DP>0)
+                {
+                    player2c.Add(player2card[a]);
+                }
                 player1card.RemoveAt(a);
                 player2card.RemoveAt(a);
             }
             else if ((player1card[a]!=null)&(player2card[a]==null))
             {
                 player2.HP-=player1card[a].AP;
+                player1c.Add(player1card[a]);
                 player1card.RemoveAt(a);
             }
             else if ((player2card[a]!=null)&(player1card[a]==null))
             {
                 player1.HP-=player2card[a].AP;
+                player2c.Add(player2card[a]);
                 player2card.RemoveAt(a);
             }
 
             //If a players card gets destroyed 
             //but the other players card still has AP
-            if ((number1<0)&(player1card[a+1]==null))
+            if ((number1<0)&(player1card[a]==null))
             {
-                player1card.RemoveAt(a);
                 player1.HP+=number1;
             }
-            else if ((number1<0)&(player1card[a+1]!=null))
+            else if ((number1<0)&(player1card[a]!=null))
             {
-                player1card.RemoveAt(a);
                 player1card[a].DP+=number1;
             }
 
 
             if ((number2<0)&(player2card[a+1]==null))
             {
-                player2card.RemoveAt(a);
                 player2.HP+=number2;
             }
             else if ((number2<0)&(player2card[a+1]!=null))
             {
-                player2card.RemoveAt(a);
                 player2card[a].DP+=number2;
             }
+
+            
             
         }
 
@@ -107,6 +117,8 @@ namespace TragicTheReckoning
             turn++;
             player1.UpdatePlayer(turn);
             player2.UpdatePlayer(turn);
+            player1card=player1c;
+            player2card=player2c;
         }
     }
 }

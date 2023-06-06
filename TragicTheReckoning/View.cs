@@ -43,7 +43,7 @@ namespace TragicTheReckoning
         public void Player2Stats()
         {
             number=0;
-            Console.WriteLine($"player1 HP:{turn.player2.HP}");
+            Console.WriteLine($"player2 HP:{turn.player2.HP}");
             Console.WriteLine($"MP:{turn.player2.MP}");
             Console.WriteLine($"cards:");
 
@@ -96,19 +96,19 @@ namespace TragicTheReckoning
         {
             if ((turn.player1card[a]!=null)&(turn.player2card[a]!=null))
             {
-                Console.WriteLine($"Both players have cards in game");
+                Console.WriteLine($"Both players have cards that can attack in game");
             }
             else if ((turn.player1card[a]!=null)&(turn.player2card[a]==null))
             {
-                Console.WriteLine($"Player 2 card has no cards");
+                Console.WriteLine($"Player 2 has no cards that can attack");
             }
             else if ((turn.player1card[a]==null)&(turn.player2card[a]!=null))
             {
-                Console.WriteLine($"Player 1 card has no cards");
+                Console.WriteLine($"Player 1 has no cards that can attack");
             }
             else
             {
-                Console.WriteLine($"No player has cards in the game");
+                Console.WriteLine($"No player has cards that can attack in the game");
             }
             
         }
@@ -121,7 +121,7 @@ namespace TragicTheReckoning
         //If a player loses
         public void Death(int a)
         {
-            Console.WriteLine($"player {a} lost the game");
+            Console.WriteLine($"player {a} lost");
         }
     }
 }
