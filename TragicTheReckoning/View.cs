@@ -71,8 +71,8 @@ namespace TragicTheReckoning
             Console.Write($"If the number of cards in a players hand is ");
             Console.Write($"less than 6 then the player will get another card");
             Console.Write($" at the end of the turn. ");
-            Console.Write($"If any of the players want to give up press ");
-            Console.WriteLine($"Esc.");
+            Console.Write($"If any of the players want to give up write ");
+            Console.WriteLine($"quit.");
         }
 
         //<summary>Spell phase</summary>
@@ -80,7 +80,7 @@ namespace TragicTheReckoning
         {
             Console.Write($"Choose the card to play in the attack phase.");
             Console.Write($" If you don't want to play anymore cards write");
-            Console.WriteLine($" no");
+            Console.WriteLine($" continue");
             
         }
 

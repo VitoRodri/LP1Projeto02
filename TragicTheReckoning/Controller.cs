@@ -9,7 +9,6 @@ namespace TragicTheReckoning
     {
         private Turn turn;
         private int alive;
-
         private string cards;
         private int number;
         
@@ -87,11 +86,7 @@ namespace TragicTheReckoning
                             
                             turn.AttackPhase(0);
                         }
-                        
-
-                        turn.EndTurn();
-                        
-                        
+                        turn.EndTurn(); 
                     }
                 }
             }
@@ -114,9 +109,6 @@ namespace TragicTheReckoning
             
             
         }
-
-  
-
         private int StringtoInt(string cards)
         {
             if (cards=="1")
