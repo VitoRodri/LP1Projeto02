@@ -42,9 +42,10 @@ namespace TragicTheReckoning
                         view.NoCard();
                         view.Player1Stats();
                     }
+                    keys=false;
                     cards=view.HowManyCards();
-                    key=view.GetKey().Key;
                     keys=GetKey(cards);
+                    
                 }
                 if (key==ConsoleKey.Escape)
                 {
@@ -90,10 +91,6 @@ namespace TragicTheReckoning
                         
                         
                     }
-                }
-                else
-                {
-                    
                 }
             }
 
